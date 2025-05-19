@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modern Landing Page</title>
+<style>
+  /* Reset and base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    background: #f9faff;
+    line-height: 1.6;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header */
+  header {
+    background: #0a74da;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 6px rgba(10, 116, 218, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  ul.nav-links li a {
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+  ul.nav-links li a:hover,
+  ul.nav-links li a:focus {
+    background: rgba(255 255 255 / 0.3);
+    outline: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(120deg, #4a90e2 0%, #0064eb 100%);
+    color: white;
+    padding: 100px 20px 80px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    background: #ffc107;
+    color: #0a2a54;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: #e6ac00;
+    box-shadow: 0 6px 20px rgba(230, 172, 0, 0.8);
+    outline:none;
+  }
+
+  /* Features Section */
+  .features {
+    background: white;
+    padding: 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+  .feature-item {
+    background: #f0f6ff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  .feature-item:hover,
+  .feature-item:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #0a74da;
+  }
+  .feature-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .feature-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  footer {
+    background: #0a74da;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive Nav for small screens */
+  @media (max-width: 640px) {
+    nav {
+      flex-direction: column;
+      gap: 12px;
+    }
+    ul.nav-links {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav role="navigation" aria-label="Primary Navigation">
+      <div class="logo" tabindex="0">BrandName</div>
+      <ul class="nav-links">
+        <li><a href="#features" tabindex="0">Features</a></li>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" role="banner" aria-label="Hero Section">
+  <div class="container">
+    <h1>Innovate Your Digital Experience</h1>
+    <p>Explore powerful and intuitive designs that transform how you connect with your audience and grow your business.</p>
+    <button class="btn-primary" aria-label="Get Started">Get Started</button>
+  </div>
+</section>
+
+<section id="features" class="features" aria-label="Features Section">
+  <div class="feature-item" tabindex="0">
+    <div class="feature-icon" aria-hidden="true">⚡️</div>
+    <h2 class="feature-title">Fast Performance</h2>
+    <p class="feature-desc">Experience lightning-fast load times and smooth interactions for an engaging user experience.</p>
+  </div>
+  <div class="feature-item" tabindex="0">
+    <div class="feature-icon" aria-hidden="true">🔒</div>
+    <h2 class="feature-title">Secure & Reliable</h2>
+    <p class="feature-desc">Cutting-edge security practices to keep your data safe and protect your privacy.</p>
+  </div>
+  <div class="feature-item" tabindex="0">
+    <div class="feature-icon" aria-hidden="true">🎨</div>
+    <h2 class="feature-title">Modern Design</h2>
+    <p class="feature-desc">Beautifully crafted visuals with a clean and contemporary style to delight your users.</p>
+  </div>
+  <div class="feature-item" tabindex="0">
+    <div class="feature-icon" aria-hidden="true">⚙️</div>
+    <h2 class="feature-title">Customizable</h2>
+    <p class="feature-desc">Easily tailor features and design elements to suit your brand and goals.</p>
+  </div>
+</section>
+
+<section id="about" class="container" style="padding: 60px 20px;">
+  <h2 style="font-weight: 700; font-size: 2rem; text-align: center; margin-bottom: 24px;">About Us</h2>
+  <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #444; line-height: 1.6; text-align: center;">
+    We are passionate creators dedicated to building beautiful digital experiences that empower businesses and inspire users. Our team blends creativity, technology, and usability to craft solutions that matter.
+  </p>
+</section>
+
+<section id="contact" class="container" style="padding: 60px 20px 100px;">
+  <h2 style="font-weight: 700; font-size: 2rem; text-align: center; margin-bottom: 24px;">Contact Us</h2>
+  <form style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;" aria-label="Contact Form">
+    <input type="text" placeholder="Your Name" required style="padding: 12px 16px; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;" aria-required="true"/>
+    <input type="email" placeholder="Your Email" required style="padding: 12px 16px; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;" aria-required="true"/>
+    <textarea placeholder="Your Message" rows="4" required style="padding: 12px 16px; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;" aria-required="true"></textarea>
+    <button type="submit" class="btn-primary" aria-label="Send Message">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2024 BrandName. All rights reserved.
+</footer>
+</body>
+</html>
