@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Jualan - Toko Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Toko Online</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#cart">Keranjang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="banner">
+            <h2>Selamat datang di Toko Online Kami!</h2>
+            <p>Temukan berbagai produk terbaik untuk kebutuhan Anda.</p>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Produk Kami</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="Produk 1">
+                <h3>Produk 1</h3>
+                <p>Deskripsi produk 1</p>
+                <p>Rp 100,000</p>
+                <button class="add-to-cart" data-product="Produk 1" data-price="100000">Tambah ke Keranjang</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="Produk 2">
+                <h3>Produk 2</h3>
+                <p>Deskripsi produk 2</p>
+                <p>Rp 150,000</p>
+                <button class="add-to-cart" data-product="Produk 2" data-price="150000">Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart">
+        <h2>Keranjang Belanja</h2>
+        <div id="cart-content">
+            <p>Keranjang kosong.</p>
+        </div>
+        <button id="checkout" disabled>Proses Pembayaran</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Toko Online. Semua hak cipta dilindungi.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#home {
+    background-color: #009688;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#products {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #009688;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+#cart {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+// Menangani aksi "Tambah ke Keranjang"
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartContent = document.getElementById('cart-content');
+const checkoutButton = document.getElementById('checkout');
+
+let cart = [];
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const productName = this.getAttribute('data-product');
+        const productPrice = this.getAttribute('data-price');
+
+        const product = {
+            name: productName,
+            price: parseInt(productPrice)
+        };
+
+        cart.push(product);
+        updateCart();
+    });
+});
+
+// Mengupdate tampilan keranjang
+function updateCart() {
+    if (cart.length === 0) {
+        cartContent.innerHTML = '<p>Keranjang kosong.</p>';
+        checkoutButton.disabled = true;
+    } else {
+        let cartHTML = '<ul>';
+        let totalPrice = 0;
+
+        cart.forEach(item => {
+            cartHTML += `<li>${item.name} - Rp ${item.price}</li>`;
+            totalPrice += item.price;
+        });
+
+        cartHTML += `</ul><p>Total: Rp ${totalPrice}</p>`;
+        cartContent.innerHTML = cartHTML;
+        checkoutButton.disabled = false;
+    }
+}
